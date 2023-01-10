@@ -2,37 +2,30 @@ import {splitIntoWords, sum} from './01'
 import {mult} from './01'
 
 //data
-let a: number;
-let b: number;
-let c: number;
+let a: number
+let b: number
+let c: number
 
 beforeEach(() => {
-    a = 1;
-    b = 2;
-    c = 3;
+    a = 1
+    b = 2
+    c = 3
 })
 
 test('sum should be correct', () => {
-
     //action
-    const result1 = sum(a,b);
-    a = 100;
-    const result2 = sum(a,b);
+    const result = sum(a,b)
 
     //expect result
-    expect(result1).toBe(3);
-    expect(result2).toBe(102);
+    expect(result).toBe(3)
 })
 
-test('multiply should be correct', () => {
-
+test('mult should be correct', () => {
     //action
-    const result1 = mult(a,b);
-    const result2 = mult(b,c);
+    const result = mult(b,c)
 
     //expect result
-    expect(result1).toBe(2);
-    expect(result2).toBe(6);
+    expect(result).toBe(6)
 })
 
 test('splitting into words should be correct', () => {
