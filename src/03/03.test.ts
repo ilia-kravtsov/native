@@ -1,3 +1,91 @@
+import {StudType} from "../02/02";
+import {addSkill} from "./03";
+
+let stu : StudType
+
+beforeEach(() => {
+    stu = {
+        'name': 'killian',
+        age: 29,
+        isActive: false,
+        address: {
+            streetTitle: 'lenina 1',
+            city: {
+                title: 'minsk',
+                country: 'belarus',
+            }
+        },
+        technologies: [
+            {
+                id: 1,
+                tecName: 'HTML',
+            },
+            {
+                id: 2,
+                tecName: 'CSS',
+            },
+            {
+                id: 3,
+                tecName: 'JS',
+            },
+            {
+                id: 4,
+                tecName: 'React',
+            },
+        ]
+    }
+})
+
+test('new tecName skill should be added to student', () => {
+    expect(stu.technologies.length).toBe(4)
+
+    addSkill(stu, 'JS');
+
+    expect(stu.technologies[4].tecName).toBe('JS')
+    expect(stu.technologies.length).toBe(5)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 import {StudentType} from "../02/02";
 import {addSkill, doesStudentLiveIn} from "./03";
 import {makeStudentActive} from "./03";
@@ -58,4 +146,4 @@ test("does student live in city?", () => {
     expect(result1).toBe(false)
     expect(result2).toBe(true)
 
-})
+})*/
