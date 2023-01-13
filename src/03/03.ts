@@ -1,29 +1,45 @@
 import {StudType} from "../02/02";
+import {GovernmentBuildingsType, HousesType, LocalCityType} from "../02/02_02";
 
 export const sum = (a: number, b: number) => {
     return a + b
 }
 
 export const addSkill = (st: StudType, skill: string) => {
-    st.technologies.push({
-        id: new Date().getTime(),
-        tecName: skill
-    })
+    st.technologies.push({id: new Date().getTime(), tecName: skill})
 }
 
+export const isActiveStudent = (st: StudType) => {
+    st.isActive = !st.isActive
+}
+
+export const doesCtudentLive = (s: StudType, country: string) =>
+    s.address.city.country === country;
 
 
+export const addMoneyToBudget = (cit: GovernmentBuildingsType, budget: number) => {
+    cit.budget += budget;
+}
 
+export const minusMoneyFromBudget = (cit: GovernmentBuildingsType, budget: number) => {
+    cit.budget -= budget
+}
 
+export const repairHouse = (houses: HousesType ) => {
+    houses.repaired = !houses.repaired
+}
 
+export const toFireStaff = (building: GovernmentBuildingsType, staffCount: number) => {
+    building.staffCount -= staffCount
+}
 
+export const toHireStaff = (building: GovernmentBuildingsType, staffCount: number) => {
+    building.staffCount += staffCount
+}
 
-
-
-
-
-
-
+export const createMessage = (city: LocalCityType) => {
+    return `Hello ${city.title} citizens. i want you be happy. All ${city.citizensNumber} people`
+}
 
 
 

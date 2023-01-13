@@ -1,50 +1,75 @@
 import {StudType} from "../02/02";
-import {addSkill} from "./03";
+import {addSkill, doesCtudentLive, isActiveStudent} from "./03";
 
-let stu : StudType
+let ctudent: StudType
 
 beforeEach(() => {
-    stu = {
-        'name': 'killian',
+    ctudent = {'name': 'killian',
         age: 29,
         isActive: false,
         address: {
-            streetTitle: 'lenina 1',
+        streetTitle: 'lenina 1',
             city: {
-                title: 'minsk',
+            title: 'minsk',
                 country: 'belarus',
-            }
+        }
+    },
+    technologies: [
+        {
+            id: 1,
+            tecName: 'HTML',
         },
-        technologies: [
-            {
-                id: 1,
-                tecName: 'HTML',
-            },
-            {
-                id: 2,
-                tecName: 'CSS',
-            },
-            {
-                id: 3,
-                tecName: 'JS',
-            },
-            {
-                id: 4,
-                tecName: 'React',
-            },
-        ]
-    }
+        {
+            id: 2,
+            tecName: 'CSS',
+        },
+        {
+            id: 3,
+            tecName: 'JS',
+        },
+        {
+            id: 4,
+            tecName: 'React',
+        },
+    ]
+}} )
+
+test('add new tech skill to ctudent', () => {
+
+    //expectations before actions
+    expect(ctudent.technologies.length).toBe(4)
+
+    //actions
+    addSkill(ctudent, 'TypeScript')
+
+    //expectations after actions
+    expect(ctudent.technologies.length).toBe(5)
+    expect(ctudent.technologies[4].tecName).toBe('TypeScript')
+    expect(ctudent.technologies[4].id).toBeDefined()
 })
 
-test('new tecName skill should be added to student', () => {
-    expect(stu.technologies.length).toBe(4)
+test('ctudent should be made active', () => {
 
-    addSkill(stu, 'JS');
+    //expectations before actions
+    expect(ctudent.technologies.length).toBe(4)
 
-    expect(stu.technologies[4].tecName).toBe('JS')
-    expect(stu.technologies.length).toBe(5)
+    //actions
+    isActiveStudent(ctudent)
+
+    //expectations after actions
+    expect(ctudent.isActive).toBe(true)
 })
 
+test('does ctudent live in Belarus', () => {
+
+    //actions
+    let result_1 = doesCtudentLive(ctudent, 'belarus');
+    let result_2 = doesCtudentLive(ctudent, 'moscow');
+
+    //expectations after actions
+    expect(result_1).toBe(true)
+    expect(result_2).toBe(false)
+})
 
 
 
