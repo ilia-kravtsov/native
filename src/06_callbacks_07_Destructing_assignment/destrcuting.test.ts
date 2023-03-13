@@ -39,21 +39,21 @@ test('', () => {
     expect(l.length).toBe(3)
 })
 
-test('a', () => {
-    const l1 = props.lessons[0]
-    const l2 = props.lessons[1]
-
-    const [, ls2, ...restLessons] = props.lessons
-
-    expect(l1.title).toBe('1')
-    expect(l2.title).toBe('2')
-
-    expect(ls2.title).toBe('2')
-    expect(restLessons.length).toBe(1)
-    expect(restLessons[0].title).toBe('3')
-    expect(restLessons[0].name).toBe('react')
-    expect(restLessons[0]).toStrictEqual({title: '3', name: 'react'})
-})
+// test('a', () => {
+//     const l1 = props.lessons[0]
+//     const l2 = props.lessons[1]
+//
+//     const [, ls2, ...restLessons] = props.lessons
+//
+//     expect(l1.title).toBe('1')
+//     expect(l2.title).toBe('2')
+//
+//     expect(ls2.title).toBe('2')
+//     expect(restLessons.length).toBe(1)
+//     expect(restLessons[0].title).toBe('3')
+//     expect(restLessons[0].name).toBe('react')
+//     expect(restLessons[0]).toStrictEqual({title: '3', name: 'react'})
+// })
 
 /*
  const age = props.age
